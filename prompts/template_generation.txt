@@ -1,0 +1,39 @@
+You are writing five distinct fluent English sentence templates that verbalize one row of a database table.
+
+Database: {db}
+Table: {table}
+
+Required columns (each sentence must use every one exactly once as {{placeholders}}):
+{sel_cols}
+
+Sample values for these columns (for context):
+{example_block}
+
+Guidelines
+1. **Produce exactly 5 sentences.** Each sentence must include every required column once and only once, wrapped as {{column_name}}.
+2. You may reorder the placeholders naturally; no extra columns should be added.
+3. Keep each sentence concise, grammatically correct, and natural to a human reader.
+4. The column values are descriptive and human-interpretable (names, dates, quantities, locations, etc.). Avoid metadata fields like IDs or flags.
+5. Return a single valid JSON object in the exact format below—no Markdown, no commentary:
+
+```json
+{{
+  "template1": "Sentence 1 with {{col1}}, {{col2}}, …",
+  "template2": "Sentence 2 with {{col1}}, {{col2}}, …",
+  "template3": "Sentence 3 with {{col1}}, {{col2}}, …",
+  "template4": "Sentence 4 with {{col1}}, {{col2}}, …",
+  "template5": "Sentence 5 with {{col1}}, {{col2}}, …"
+}}
+
+Example for reference  
+Columns = [product_name, price, category]  
+Sample values = product_name: “iPhone 15”, price: “899 USD”, category: “Electronics”  
+Expected output:
+```json
+{{
+  "template1": "{{product_name}} in the {{category}} category is priced at {{price}}.",
+  "template2": "The {{category}} item {{product_name}} costs {{price}}.",
+  "template3": "Retailing for {{price}}, the {{product_name}} belongs to {{category}}.",
+  "template4": "{{product_name}}—a {{category}} product—carries a price tag of {{price}}.",
+  "template5": "Price for the {{category}} product {{product_name}} is {{price}}."
+}}

@@ -1,0 +1,65 @@
+You are given a list of column names from a database table, along with a sample value for each column.
+
+Your task consists of two steps:
+
+---
+
+**Step 1: Column Suitability Classification**
+
+Label each column as either:
+- "YES": if the column is descriptive and human-interpretable (e.g., name, title, category, price, quantity, location, status).
+- "NO": if it is a technical field or metadata column (e.g., id, uuid, product_id, created_at, URL) that is unlikely to appear in a natural-language description.
+
+---
+**Step 2: Column Combination Generation**
+
+From the columns labeled "YES", generate a small number of diverse and meaningful combinations (ideally 2–5). Each combination should:
+
+- Contain only columns labeled "YES"
+- Include exactly three columns 
+- Avoid repeating the same column in a single combination
+- Be suitable for use in a natural-language sentence such as:
+  > “{{product_name}} is sold by {{supplier_name}} for {{price}}.”
+
+If only one or two YES columns exist, just generate 1 or 2 simple combinations.
+
+Avoid bad combinations like:
+["ATT_CLASS", "ATT_CLASS"]
+["ATT_CLASS_ID"] if it was labeled "NO"
+
+---
+
+**Input:**
+
+Database: {db}  
+Table: {table}
+
+Columns with sample values:
+{cols}
+
+---
+
+**Example:**
+
+Columns = [product_name, price, category, product_id, created_at, stock_quantity, supplier_name]  
+Example Output:
+[
+  ["product_name", "price", "category"],
+  ["product_name", "supplier_name"],
+  ["product_name", "stock_quantity", "price"]
+]
+
+---
+
+**Your Output Format:**
+
+```json
+{{
+  "column_classification": {{
+    "column_name_1": "YES",
+    "column_name_2": "NO"
+  }},
+  "combinations": [
+    ...
+  ]
+}}

@@ -1,0 +1,74 @@
+[
+    {
+      "id_": "toy_001",
+      "db": "toy_sales",
+      "Question": "What was the revenue for product A in the North region in 2021-03?",
+      "answer": [["34500"]],
+      "SQL": "SELECT revenue FROM monthly_sales WHERE year = 2021 AND month = '2021-03' AND product = 'Product A' AND region = 'North';",
+      "table_names": ["monthly_sales"],
+      "tables": [
+        {
+          "table_columns": [
+            "year",
+            "month",
+            "region",
+            "product",
+            "units_sold",
+            "unit_price",
+            "revenue",
+            "cost",
+            "profit",
+            "profit_margin"
+          ],
+          "table_content": [
+            [2021, "2021-01", "North", "Product A", 100, 300, 30000, 21000, 9000, 0.30],
+            [2021, "2021-02", "North", "Product A", 90, 320, 28800, 20160, 8640, 0.30],
+            [2021, "2021-03", "North", "Product A", 115, 300, 34500, 24150, 10350, 0.30],
+            [2021, "2021-04", "North", "Product A", 80, 310, 24800, 17360, 7440, 0.30],
+            [2021, "2021-05", "South", "Product A", 95, 290, 27550, 19285, 8265, 0.30],
+            [2021, "2021-06", "North", "Product B", 70, 400, 28000, 19600, 8400, 0.30],
+            [2021, "2021-07", "East", "Product A", 60, 310, 18600, 13020, 5580, 0.30],
+            [2021, "2021-08", "West", "Product A", 85, 295, 25075, 17552, 7523, 0.30],
+            [2021, "2021-09", "North", "Product C", 50, 500, 25000, 17500, 7500, 0.30],
+            [2021, "2021-10", "North", "Product A", 105, 305, 32025, 22418, 9607, 0.30]
+          ]
+        }
+      ]
+    },
+    {
+      "id_": "toy_002",
+      "db": "toy_employees",
+      "Question": "Which department has the highest total salary?",
+      "answer": [["Engineering"]],
+      "SQL": "SELECT department FROM employee_stats GROUP BY department ORDER BY SUM(salary) DESC LIMIT 1;",
+      "table_names": ["employee_stats"],
+      "tables": [
+        {
+          "table_columns": [
+            "emp_id",
+            "name",
+            "department",
+            "title",
+            "hire_year",
+            "salary",
+            "bonus",
+            "location",
+            "performance_score",
+            "is_manager"
+          ],
+          "table_content": [
+            [1, "Alice",   "Engineering", "Senior Engineer", 2016, 120000, 15000, "NY",      4.8, 1],
+            [2, "Bob",     "Sales",       "Sales Manager",   2014,  95000, 20000, "SF",      4.2, 1],
+            [3, "Charlie", "Engineering", "Engineer",        2019, 105000,  8000, "NY",      4.5, 0],
+            [4, "Diana",   "HR",          "HR Specialist",   2018,  80000,  5000, "Remote",  4.1, 0],
+            [5, "Evan",    "Engineering", "Engineer",        2020, 100000,  7000, "NY",      4.3, 0],
+            [6, "Fiona",   "Marketing",   "Marketing Lead",  2015,  92000, 10000, "LA",      4.0, 1],
+            [7, "George",  "Sales",       "Sales Rep",       2021,  78000, 15000, "SF",      3.9, 0],
+            [8, "Hannah",  "Engineering", "Staff Engineer",  2012, 135000, 18000, "NY",      4.9, 1],
+            [9, "Ian",     "Engineering", "Engineer",        2017,  98000,  6000, "Remote",  4.4, 0],
+            [10,"Jenny",   "HR",          "HR Manager",      2013,  88000,  9000, "NY",      4.3, 1]
+          ]
+        }
+      ]
+    }
+  ]

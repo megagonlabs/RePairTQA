@@ -1,0 +1,16 @@
+You are given a single row from a semi-structured table. Your task is to verbalize the given "description" field by **embedding it naturally into a longer sentence or paragraph** of around 50 words. 
+
+Please enrich the description by adding relevant and realistic context (e.g., lifestyle, behavior, background), while keeping the original meaning **intact**.
+
+Make sure:
+- The original description is preserved within the enriched text (you can rephrase slightly, but not change the meaning).
+- Do not add any contradictory or misleading information.
+- The enriched context must not change the answer to the original question related to this row.
+
+Here is the row data for more context information:
+{}
+
+Original Description:
+"{description}"
+
+Please output only the enriched description, approximately 50 words long.
