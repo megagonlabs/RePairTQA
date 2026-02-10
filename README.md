@@ -512,13 +512,12 @@ python gpt_evaluator_s7.py \
 If you use this codebase or dataset in academic work, please cite:
 
 ```bibtex
-@article{Zhang2025SameCD,
-  title={Same Content, Different Representations: A Controlled Study for Table QA},
+@inproceedings{Zhang2025SameCD,
+  title={Same Content, Different Representations: A Controlled Study for Table {QA}},
   author={Yue Zhang and Seiji Maekawa and Nikita Bhutani},
-  journal={ArXiv},
-  year={2025},
-  volume={abs/2509.22983},
-  url={https://api.semanticscholar.org/CorpusID:281674326}
+  booktitle={The Fourteenth International Conference on Learning Representations},
+  year={2026},
+  url={https://openreview.net/forum?id=QTgx2ThiAb}
 }
 ```
 
